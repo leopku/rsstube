@@ -1,0 +1,77 @@
+{
+  "name": "fastify-boilerplate",
+  "version": "1.0.0",
+  "description": "A full blown production ready boilerplate to build APIs.",
+  "main": "index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=v16.15.0"
+  },
+  "scripts": {
+    "dev": "nodemon src",
+    "test": "echo \"Running tests... \n Done.\" && exit 0",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "knex": "node -r dotenv/config ./node_modules/.bin/knex",
+    "migrate": "npm run knex -- migrate:latest --debug --knexfile ./config/knexConfig.js",
+    "migrate:make": "knex -- migrate:make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattaharish/fastify-boilerplate.git"
+  },
+  "keywords": [
+    "fastify",
+    "got",
+    "pino",
+    "docker",
+    "prometheus"
+  ],
+  "author": "Harish Matta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mattaharish/fastify-boilerplate/issues"
+  },
+  "homepage": "https://github.com/mattaharish/fastify-boilerplate#readme",
+  "devDependencies": {
+    "eslint": "^8.23.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-unicorn": "^43.0.2",
+    "husky": "^8.0.1",
+    "pino-pretty": "^9.1.0",
+    "prettier": "2.7.1"
+  },
+  "dependencies": {
+    "@fastify/autoload": "^5.3.1",
+    "@fastify/cors": "^8.1.0",
+    "@fastify/formbody": "^7.1.0",
+    "@fastify/helmet": "^10.0.0",
+    "@fastify/swagger": "^7.5.0",
+    "@fastify/under-pressure": "^8.1.0",
+    "ajv": "^8.11.0",
+    "ajv-errors": "^3.0.0",
+    "ajv-formats": "^2.1.1",
+    "env-schema": "^5.0.0",
+    "fastify": "^4.5.3",
+    "fastify-healthcheck": "^4.2.0",
+    "fastify-plugin": "^4.2.1",
+    "json-stringify-safe": "^5.0.1",
+    "knex": "^2.3.0",
+    "lodash": "^4.17.21",
+    "make-promises-safe": "^5.1.0",
+    "nodemon": "^2.0.19",
+    "pg": "^8.8.0",
+    "pino": "^8.4.2",
+    "pino-multi-stream": "^6.0.0",
+    "uuid": "^8.3.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint && npm run test"
+    }
+  }
+}
